@@ -10,17 +10,29 @@ interface ITheme{
     toggleTheme: ()=> void
 }
 
+const verifyLocalStorage = ()=>{
+    const themeLocalStorage = localStorage.getItem("@themeED")
+    if(themeLocalStorage){
+        return themeLocalStorage
+    }
+    return "light"
+}
+
 export const ThemeContext = createContext<ITheme>({
-    theme: "light",
+    theme: verifyLocalStorage(),
     setTheme: () => undefined,
     toggleTheme: ()=> undefined
 })
 
 export const ThemeProvider = ({children}:IProps)=>{
-    const [theme, setTheme] = useState("light")
+    const [theme, setTheme] = useState(verifyLocalStorage())
 
     const toggleTheme = ()=>{
         setTheme(theme === "light" ? "dark" : "light")
+        localStorage.setItem(
+            "@themeED", 
+            theme === "light" ? "dark" : "light"
+            )
     }
 
     return(
