@@ -13,15 +13,17 @@ const medias = [
 ]
 
 export const StyledHeader = styled.header<{ theme: ThemeType }>`
+    position: fixed;
+    top: 0px;
     transition: .5s;
     background-color: ${({ theme }) => theme.body};
-    width: 100vw;
+    width: 100%;
     height: 60px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     color: ${({ theme }) => theme.text};
-    box-shadow: 0px 0px 1px 1px ${({ theme }) => theme.header};
+    box-shadow: 0px 0px 1px 1px ${({ theme }) => theme.headerShadow};
 
     ${medias.map((media)=> css`
         @media screen and (min-width: ${media.break}px){

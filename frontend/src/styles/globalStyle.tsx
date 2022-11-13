@@ -10,7 +10,8 @@ export const GlobalStyle = createGlobalStyle<{theme: ThemeType}>`
 
     body{
         transition: .5s;
-        background-color:${({ theme }) => theme.body}
+        background-color:${({ theme }) => theme.body};
+        font-family: 'Inter', sans-serif;
     }
 
     button{
