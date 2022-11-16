@@ -1,8 +1,8 @@
-from django.db import models
-import uuid
+from rest_framework import serializers
+from billing.models import Billing
 
 
-class Billing(models.Model):
+class BillingSerializer(serializers.Serializer):
     id = models.UUIDField(default=uuid.uuid4, primary_key=True, editable=False)
     client_code = models.IntegerField()
     category_product = models.CharField(max_length=256)
@@ -10,4 +10,9 @@ class Billing(models.Model):
     date = models.DateField()
     quantity = models.IntegerField()
     value_billing = models.DecimalField(decimal_places=2, max_digits=15)
-    
+
+    def create(self, validated_data: dict) -> dict:
+        billing = Billing.objects.create(**validated_data)
+
+        billing.save()
+        return billing

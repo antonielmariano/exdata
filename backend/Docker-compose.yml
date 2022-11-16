@@ -12,7 +12,7 @@ services:
         env_file: .env
         command: #
             bash -c 'while !</dev/tcp/db/5432; do sleep 1; done; python manage.py migrate'
-        volumes: #(4)
+        volumes:
             - .:/code
         depends_on:
             - db
