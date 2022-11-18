@@ -61,7 +61,6 @@ export const SelectOption = styled.select`
 
 export const SectionDataStyled = styled.section`
     width: 60%;
-    height: 300px;
     display: flex;
     flex-direction: column;
     align-items: center;

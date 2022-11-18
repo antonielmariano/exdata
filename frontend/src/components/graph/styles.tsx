@@ -7,7 +7,6 @@ export const SectionGraphStyled = styled.section`
     align-items: center;
     width: 40%;
     gap: 20px;
-    height: 300px;
     
 `
 
