@@ -114,7 +114,6 @@ export default function FilterResults() {
                                 pageCount={pageCount}
                                 previousLabel="<"
                                 className="React-pagination"
-                                renderOnZeroPageCount={null}
                             />
                         }
                 </SectionDataStyled>
@@ -138,7 +137,6 @@ export default function FilterResults() {
                         pageCount={pageCountFull}
                         previousLabel="<"
                         className="React-pagination"
-                        renderOnZeroPageCount={null}
                     />
             </SectionListStyled>
 
