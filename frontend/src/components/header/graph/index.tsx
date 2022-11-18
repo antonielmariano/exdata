@@ -83,6 +83,10 @@ export default function Graph(){
 
     return(
         <>
+            <button>Primeiro trimeste</button>
+            <button>Segundo trimestre</button>
+            <button>Terceiro trimestre</button>
+            <button>Quarto trimestre</button>
             <Chart
                 options={lineChartOptionsTotalSpent.options}
                 series={lineChartOptionsTotalSpent.series}  

@@ -1,18 +1,18 @@
 from rest_framework import serializers
 from billing.models import Billing
+import ipdb
 
 
-class BillingSerializer(serializers.Serializer):
-    id = models.UUIDField(default=uuid.uuid4, primary_key=True, editable=False)
-    client_code = models.IntegerField()
-    category_product = models.CharField(max_length=256)
-    sku_product = models.CharField(max_length=256)
-    date = models.DateField()
-    quantity = models.IntegerField()
-    value_billing = models.DecimalField(decimal_places=2, max_digits=15)
+class BillingSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Billing
+        fields = "__all__"
+        read_only_fields = ["id"]
 
-    def create(self, validated_data: dict) -> dict:
-        billing = Billing.objects.create(**validated_data)
+class BillingValueQuantitySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Billing
+        fields = ["quantity", "value_billing"]
 
-        billing.save()
-        return billing
+
+

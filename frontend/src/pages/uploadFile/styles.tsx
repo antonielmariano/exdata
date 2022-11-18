@@ -38,7 +38,7 @@ export const InputStyled = styled.input`
     width: 100%;
     
 `
-export const SectionStyled = styled.section`
+export const FormStyled = styled.form`
     display: flex;
     width: 280px;
     flex-direction: column;

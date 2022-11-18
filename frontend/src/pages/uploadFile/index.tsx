@@ -1,18 +1,32 @@
 import { useState } from "react";
 import ProgressBar from "../../components/header/progressBar";
-import { ButtonStyled, MainStyled, SectionStyled, TextH3Styled, TextPStyled } from "./styles";
+import { internalAPI } from "../../services/internalAPI";
+import { ButtonStyled, MainStyled, FormStyled, TextH3Styled, TextPStyled } from "./styles";
 
 
 
 
 export default function UploadFile() {
-    const [file, setFile] = useState("")
+    const [file, setFile] = useState<File>()
     const [showLoading, setShowLoading] = useState(false)
 
-    const handleSubmit = (event: any) => {
+    const handleChange = (event: any) => {
         if(event.target.files[0].type === "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"){
-            setFile(event.target.files[0].name)  
+            setFile(event.target.files[0])  
         }
+    }
+
+    const handleSubmit = async (event:any)=>{
+        event.preventDefault()
+        if(file !== undefined){
+            const formData = new FormData()
+            formData.append('table', file)
+            await internalAPI.post("uploads/", formData)
+            .then((response) => {
+              console.log(response.data);
+          });
+        }
+       
     }
 
 
@@ -20,23 +34,24 @@ export default function UploadFile() {
         <MainStyled>
             
             {!showLoading &&
-                <SectionStyled>
+                <FormStyled onSubmit={handleSubmit} encType="multipart/form-data">
                     
                     <TextH3Styled>Importe .xlsx e filtre os dados</TextH3Styled>
                     <label htmlFor="file-upload">Clique para adicionar</label>
                     <input
                         placeholder="Anexe os arquivos"
                         type="file"
-                        name="file-upload" id="file-upload"
-                        onChange={(event) => handleSubmit(event)}
+                        name="table" 
+                        id="file-upload"
+                        onChange={(event) => handleChange(event)}
                     />
-                    {file !== "" &&
-                        <TextPStyled>Arquivo adicionado: {file}</TextPStyled>
+                    {file &&
+                        <TextPStyled>Arquivo adicionado: {file.name}</TextPStyled>
                     }
                     
-                    <ButtonStyled onClick={()=> setShowLoading(true)}>Enviar</ButtonStyled>
+                    <ButtonStyled type="submit">Enviar</ButtonStyled>
                 
-                </SectionStyled>
+                </FormStyled>
             }
                 
                 {showLoading &&
