@@ -3,4 +3,6 @@ export interface ThemeType{
     text: string
     header: string
     textHeader: string
+    buttonBackground: string
+    buttonColor: string
 }

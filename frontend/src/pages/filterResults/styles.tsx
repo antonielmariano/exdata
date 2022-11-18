@@ -15,93 +15,95 @@ const medias = [
 
 
 export const MainStyled = styled.main`
-    margin-top: 60px;
+    margin-top: 100px;
     display: flex;
-    min-height: calc(100vh - 60px);
-    gap: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: calc(100vh - 100px);
+    gap: 40px;
     justify-content: center;
-    align-items: center;
     color: ${({ theme }) => theme.text};
     ${medias.map(media => css`
         @media screen and (min-width: ${media.break}px){
             padding: ${media.padding};
         }
     `)};
-`
-export const SectionGraphStyled = styled.section`
-    width: 40%;
+    .graphs{
+        display: flex;
+        width: 100%;
+    }
 `
 
+export const SectionTypeFilter = styled.div`
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+
+`
+
+export const SendButton = styled.button`
+    width: 80px;
+    height: 30px;
+    border-radius: 10px;
+`
+
+export const SelectOption = styled.select`
+    position: absolute;
+    right: 5px;
+    font-size: 12px;
+    width: 82px;
+    height: 70%;
+    border: 1px solid #27264361;
+    border-radius: 5px;
+    cursor: pointer;
+`
 
 export const SectionDataStyled = styled.section`
     width: 60%;
+    height: 300px;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    input{
+        border: none;
+        border-radius: 10px;
+        height: 30px;
+        padding: 0px 20px;
+        width: 250px;
+    }
+    ul{
+        display: flex;
+        width: 60%;
+        list-style-type: none; 
+    }
+    li{
+        padding: 0px 10px;
+        cursor: pointer;
+    }
+    
+    
+`
+
+export const SectionListStyled = styled.section`
+    width: 100%;
+    height: 400px;
+    margin-top: 120px;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    .react-datepicker__tab-loop::after{
-        content: " ";
-        animation-name: fadeOut;
-        animation-duration: 0.3s;
-        animation-timing-function: ease;
-        -webkit-animation-name: fadeOut;
-        -webkit-animation-duration: 0.3s;
-        -webkit-animation-timing-function: ease;
+    gap: 20px;
+    
+    margin-bottom: 120px;
+    ul{
+        display: flex;
+        justify-content: center;
+        list-style-type: none;
     }
-    .react-datepicker {
-        font-family: unset;
-        margin-left: -70px;
-        font-size: 0.9rem;
-        border: none;
-        width: 270px;
-        border-radius: 10px;
-        background-color: ${({theme})=> theme.body};
-        box-shadow: ${({theme})=> theme.datePickerBoxShadow} ;
-        color: ${({theme})=> theme.text};
-        animation-name: fadeIn;
-        animation-duration: 0.3s;
-        animation-timing-function: ease;
-        -webkit-animation-name: fadeIn;
-        -webkit-animation-duration: 0.3s;
-        -webkit-animation-timing-function: ease;
-
-    }
-    .react-datepicker__tab-loop{
-        position: absolute;
-    }
-    .react-datepicker__month-container{
-        width: 100%;
-    }
-    .react-datepicker__header{
-        background-color: ${({theme})=> theme.body};
-        color: ${({theme})=> theme.text}
-    }
-    .react-datepicker__header:not(.react-datepicker__header--has-time-select) {
-        border-top-right-radius: 10px;
-        border-top-left-radius: 10px;
-    }
-    .react-datepicker__navigation-icon::before {
-        border-color: ${({theme})=> theme.text};
-        border-style: solid;
-        border-width: 3px 3px 0 0;
-        content: "";
-        display: block;
-        height: 9px;
-        position: absolute;
-        top: 6px;
-        width: 9px;
-        transition: 0.3s;
-    }
-    .react-datepicker__month .react-datepicker__month-text, .react-datepicker__month .react-datepicker__quarter-text{
-        padding: 2px 0px;
-        width: 80px;
-        &:hover{
-            background-color: ${({theme})=> theme.datePickerSelected};
-            color: ${({theme})=> theme.datePickerSelectedText};
-        }
-    }
-    .react-datepicker__day--keyboard-selected, .react-datepicker__month-text--keyboard-selected, .react-datepicker__quarter-text--keyboard-selected, .react-datepicker__year-text--keyboard-selected{
-        background-color: ${({theme})=> theme.datePickerSelected};
-        color: ${({theme})=> theme.datePickerSelectedText};
-        
+    li{
+        padding: 0px 10px;
+        cursor: pointer;
     }
 `

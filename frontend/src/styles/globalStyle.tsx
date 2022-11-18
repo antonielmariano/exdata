@@ -18,4 +18,9 @@ export const GlobalStyle = createGlobalStyle<{theme: ThemeType}>`
         border: none;
         cursor: pointer;
     }
+    input{
+        transition: .5s;
+        background-color:${({ theme }) => theme.buttonBackground};
+        color:${({ theme }) => theme.buttonColor}
+    }
 `

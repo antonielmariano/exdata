@@ -24,7 +24,7 @@ export const StyledHeader = styled.header<{ theme: ThemeType }>`
     justify-content: space-between;
     color: ${({ theme }) => theme.text};
     box-shadow: 0px 0px 1px 1px ${({ theme }) => theme.headerShadow};
-
+    z-index: 100;
     ${medias.map((media)=> css`
         @media screen and (min-width: ${media.break}px){
             padding: ${media.padding};

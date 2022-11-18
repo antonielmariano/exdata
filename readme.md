@@ -45,7 +45,7 @@ A Api possuios seguintes endpoints:
 
 
 * ***GET***  /quarterly/{ numero do trimestre }/ --> filtragem dos dados por trimeste(opções 1 - 4), Resposta da busca:
-  ![1668747039111](image/README/1668747039111.png)
+  ![1668747039111](https://file+.vscode-resource.vscode-cdn.net/c%3A/Users/tony/Desktop/Teste%20t%C3%A9cnico/exdata/image/README/1668747039111.png)
 
 # Tecnologias usadas
 

@@ -7,7 +7,7 @@ export const lightTheme = {
     headerShadow: "rgba(39, 38, 67, 0.1)",
     textHeader: "white",
     sectionBackground: "#ececec",
-    buttonBackground: "#363566",
+    buttonBackground: "#272643",
     buttonColor: "white",
     backgroundProgress: "#363566"
 }
